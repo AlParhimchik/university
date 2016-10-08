@@ -1,0 +1,5 @@
+﻿  na10.cpp
+c:\users\sasho\documents\visual studio 2015\projects\first\first\na10.cpp(13): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(552): note:  см. объявление "strdup"
+c:\users\sasho\documents\visual studio 2015\projects\first\first\na10.cpp(10): warning C4101: i: неиспользованная локальная переменная
+c:\users\sasho\documents\visual studio 2015\projects\first\first\na10.cpp(10): warning C4101: n: неиспользованная локальная переменная

@@ -19,10 +19,6 @@ public:
 		cout << "Enter the name of node"; cin >> this->name;
 		TreeNode(name);
 	}
-	static void DelTree(TreeNode *node)
-	{
-
-	}
 	TreeNode * operator =(TreeNode & node)
 	{
 		TreeNode *newNode=new TreeNode(node.name);
@@ -61,7 +57,7 @@ public:
 			else newNode = newNode->next;
 		}
 		return NULL;
-		
+
 	}
 	void AddNode(string name)
 	{
@@ -74,31 +70,32 @@ public:
 		}
 		searchEndNode->next = newNode;
 	}
-	friend void PrintTree(TreeNode *, int);
 	static void DeleteTree(TreeNode *root)
 	{
-		//if (root == NULL) return;
 		delete root;
 	}
 	~TreeNode()
 	{
 		DeleteTree(this->nodes);
 	}
-	/*friend ostream& operator<<(ostream& os, const TreeNode& node)
-	{
-		return os << node.name;
-	}*/
-}
-void PrintTree(TreeNode * node, int level)
+	friend	void operator<<(ostream &,const TreeNode *);
+	friend	void operator>>(istream &,TreeNode *);
+};
+void operator<<(ostream & os,const TreeNode * node)
 {
 	while (node != NULL)
 	{
-		PrintTree(node->nodes, level + 1);
-		for (int i = 0; i < level + 1; cout << "   ", i++);
-		cout << node->name << "  ";
+		os<<node->nodes;
+		os << node->name << "  ";
 		node = node->next;
-		cout << endl;
+		os <<" ";
 	}
+	cout<<endl;
+	
+}
+void operator>>(istream & is,TreeNode * node)
+{
+	
 }
 int main()
 {
@@ -108,10 +105,7 @@ int main()
 	root=(*root<<"2_1");
 	root->AddNode("1_2");
 	TreeNode *node = (*root)["2_1"];
-	/*if (newNode != NULL) newNode->AddNode("2_2");*/
-//	if (newNode != NULL) newNode->AddChildNode("3_1");
-	/*PrintTree(root, 0);*/
+	cout<<root;
 	delete root;
-	system("pause");
 	return 0;
 }
